@@ -36,7 +36,7 @@ Many chapters need a GPU. Where they do, the chapter README will say so and poin
 
 ## Author
 
-[Ashish Ranjan Jha](https://www.linkedin.com/in/ashishrj/) — Co-Founder and CEO at [Nativ](https://www.nativ.ai), an a16z Speedrun-backed AI localization startup. Previously Head of ML & AI at XYZ Reality; prior to that at Tractable, Revolut, Sony and Oracle. IIT Roorkee, EPFL, Quantic. Previously authored *Mastering PyTorch, 2E* and *Fight Fraud with Machine Learning*.
+[Ashish Ranjan Jha](https://www.linkedin.com/in/ashishrj/) — Co-Founder and CEO at [Nativ](https://www.usenativ.com), an a16z Speedrun-backed AI localization startup. Previously Head of ML & AI at XYZ Reality; prior to that at Tractable, Revolut, Sony and Oracle. IIT Roorkee, EPFL, Quantic. Previously authored *Mastering PyTorch, 2E* and *Fight Fraud with Machine Learning*.
 
 ## License
 
