@@ -8,8 +8,9 @@ Companion code repository for *Mastering PyTorch, Third Edition* (Packt, forthco
 
 This third edition is a substantial update to *Mastering PyTorch, 2E* (2024). It re-anchors the entire book on **PyTorch 2.x** semantics (`torch.compile`, FSDP, AOTInductor, ExecuTorch), modernizes the generative-AI coverage (open-weight LLMs, SDXL, ControlNet, MusicGen), and adds two new chapters:
 
-- **Chapter 9 — Fine-tuning LLMs** (PEFT/LoRA/DPO, RAG)
-- **Chapter 21 — Responsible and Efficient AI with PyTorch**
+- **Chapter 5 — Advanced Multimodal Models** (CLIP, BLIP-2, LLaVA)
+- **Chapter 8 — Fine-tuning LLMs** (PEFT/LoRA/DPO, RAG)
+- **Chapter 20 — Responsible and Efficient AI with PyTorch** *(proposed; addresses editorial board feedback)*
 
 For the full delta from 2E, see [`_planning/CHANGE_LOG_2E_to_3E.md`](./_planning/CHANGE_LOG_2E_to_3E.md). For the editor-facing outline that incorporates the editorial board's feedback, see [`_planning/OUTLINE_E3.md`](./_planning/OUTLINE_E3.md).
 
@@ -17,7 +18,7 @@ For the full delta from 2E, see [`_planning/CHANGE_LOG_2E_to_3E.md`](./_planning
 
 ```
 .
-├── Chapter01/ … Chapter21/   # one folder per chapter, notebooks + scripts
+├── Chapter01/ … Chapter20/   # one folder per chapter, notebooks + scripts
 ├── _planning/                # outline, change log, project plan (editorial-facing)
 ├── _drafts/                  # in-progress prose drafts before they land in the book
 ├── requirements.txt          # base Python deps (PyTorch 2.x anchored)

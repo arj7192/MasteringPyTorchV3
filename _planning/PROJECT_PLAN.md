@@ -42,31 +42,30 @@ I have grouped chapters into waves so editorial review can start before all draf
 ### Wave 1 — Refresh chapters (front-loaded, low risk) — first drafts by **Fri 27 Jun 2026**
 - Ch 1: Overview of DL with PyTorch — refresh + the new PyTorch 2.x section
 - Ch 2: Deep CNN Architectures — code refresh on PyTorch 2.x + ConvNeXt v2
-- Ch 3: Combining CNNs and LSTMs — code refresh
-- Ch 4: Deep Recurrent Models — code refresh, torchtext migration
-- Ch 16: Rapid Prototyping — refresh, drop `poutyne`
+- Ch 3: Deep Recurrent Models — code refresh, torchtext migration
+- Ch 15: Rapid Prototyping — refresh, drop `poutyne`
+- Ch 17: Explainable AI — Captum refresh
 
 ### Wave 2 — Heavy-refactor chapters — first drafts by **Fri 22 Aug 2026**
-- Ch 5: Transformers (+ Vision Transformers heavy new section)
-- Ch 7: GNNs (+ Graph Transformers heavy new section)
-- Ch 10: DCGANs (refresh + pix2pix update)
-- Ch 13: Model Training Optimizations (FSDP, `torch.compile`, distributed checkpoint)
-- Ch 14: Operationalizing into Production (vLLM, AOTInductor, DeepSpeed)
+- Ch 4: Transformers (+ Vision Transformers heavy new section)
+- Ch 6: GNNs (+ Graph Transformers heavy new section)
+- Ch 9: DCGANs (refresh + pix2pix update)
+- Ch 12: Model Training Optimizations (FSDP, `torch.compile`, distributed checkpoint)
+- Ch 13: Operationalizing into Production (vLLM, AOTInductor, DeepSpeed)
 
 ### Wave 3 — Net-new and big-bet chapters — first drafts by **Fri 14 Nov 2026**
-- Ch 6: Advanced Multimodal Models (mostly new)
-- Ch 8: Music and Text Generation (modern LLMs, MusicGen, speculative decoding)
-- **Ch 9: Fine-tuning LLMs (entirely new)**
-- Ch 11: Image Generation Using Diffusion (SDXL, ControlNet)
-- Ch 12: Deep RL (+ RLHF, DPO)
+- Ch 5: Advanced Multimodal Models (mostly new)
+- Ch 7: Music and Text Generation (modern LLMs, MusicGen, speculative decoding)
+- **Ch 8: Fine-tuning LLMs (entirely new)**
+- Ch 10: Image Generation Using Diffusion (SDXL, ControlNet)
+- Ch 11: Deep RL (+ RLHF, DPO)
 
 ### Wave 4 — Tail and the new closing chapter — first drafts by **Fri 16 Jan 2027**
-- Ch 15: Mobile & Edge (ExecuTorch)
-- Ch 17: AutoML (+ AutoGluon, AutoKeras)
-- Ch 18: Explainable AI (+ LLM interpretability)
-- Ch 19: Recommendation Systems (TorchRec)
-- Ch 20: PyTorch × Hugging Face (refresh + modern models)
-- **Ch 21: Responsible and Efficient AI (entirely new)**
+- Ch 14: Mobile & Edge (ExecuTorch)
+- Ch 16: AutoML (+ AutoGluon, AutoKeras)
+- Ch 18: Recommendation Systems (TorchRec)
+- Ch 19: PyTorch × Hugging Face (refresh + modern models)
+- **Ch 20: Responsible and Efficient AI (entirely new)**
 
 ### Final drafts and production
 - All final drafts delivered: **Fri 27 Feb 2027**
@@ -83,27 +82,26 @@ The Nov 2025 numbers I proposed remain my best estimate per chapter:
 |---|---|---|---|
 | 1  | Overview of DL with PyTorch | 18 | 1 |
 | 2  | Deep CNN Architectures | 28 | 1 |
-| 3  | Combining CNNs and LSTMs | 14 | 1 |
-| 4  | Deep Recurrent Models | 16 | 1 |
-| 5  | Transformers | 22 | 2 |
-| 6  | Advanced Multimodal Models | 30 | 3 |
-| 7  | Graph Neural Networks | 22 | 2 |
-| 8  | Music and Text Generation | 22 | 3 |
-| 9  | Fine-tuning LLMs | 30 | 3 |
-| 10 | Deep Convolutional GANs | 22 | 2 |
-| 11 | Image Generation w/ Diffusion | 18 | 3 |
-| 12 | Deep RL (+ RLHF) | 27 | 3 |
-| 13 | Model Training Optimizations | 18 | 2 |
-| 14 | Operationalizing PyTorch | 25 | 2 |
-| 15 | Mobile & Edge | 16 | 4 |
-| 16 | Rapid Prototyping | 8 | 1 |
-| 17 | PyTorch and AutoML | 15 | 4 |
-| 18 | Explainable AI | 9 | 4 |
-| 19 | Recommendation Systems (TorchRec) | 15 | 4 |
-| 20 | PyTorch × Hugging Face | 16 | 4 |
-| 21 | **Responsible & Efficient AI (new)** | 18 | 4 |
+| 3  | Deep Recurrent Models | 16 | 1 |
+| 4  | Transformers | 22 | 2 |
+| 5  | Advanced Multimodal Models | 30 | 3 |
+| 6  | Graph Neural Networks | 22 | 2 |
+| 7  | Music and Text Generation | 22 | 3 |
+| 8  | Fine-tuning LLMs | 30 | 3 |
+| 9  | Deep Convolutional GANs | 22 | 2 |
+| 10 | Image Generation w/ Diffusion | 18 | 3 |
+| 11 | Deep RL (+ RLHF) | 27 | 3 |
+| 12 | Model Training Optimizations | 18 | 2 |
+| 13 | Operationalizing PyTorch | 25 | 2 |
+| 14 | Mobile & Edge | 16 | 4 |
+| 15 | Rapid Prototyping | 8 | 1 |
+| 16 | PyTorch and AutoML | 15 | 4 |
+| 17 | Explainable AI | 9 | 1 |
+| 18 | Recommendation Systems (TorchRec) | 15 | 4 |
+| 19 | PyTorch × Hugging Face | 16 | 4 |
+| 20 | **Responsible & Efficient AI (new)** | 18 | 4 |
 
-Total: **~389 person-days** of focused writing time. With my realistic capacity, parallel wave structure, and editorial cycles, this maps to the **~9-month authoring window** above.
+Total: **~375 person-days** of focused writing time. With my realistic capacity, parallel wave structure, and editorial cycles, this maps to the **~9-month authoring window** above.
 
 ---
 
