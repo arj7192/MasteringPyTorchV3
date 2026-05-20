@@ -50,7 +50,7 @@ If PyTorch 1.x was a research framework that happened to be deployable, PyTorch 
 
 This has three consequences worth flagging up front:
 
-1. **Open-weight LLMs are PyTorch-native by default.** Llama 3, Qwen 2.5, Mistral, Phi-3 — the open-weight model you reach for is, almost without exception, distributed as a PyTorch checkpoint. We use them in Chapters 7 and 8.
+1. **Open-weight LLMs are PyTorch-native by default.** This book uses **Llama 3** as the primary worked example, with lighter comparative references to Qwen 2.5 and Mistral so you can see what is family-specific and what is general. All of them ship as PyTorch checkpoints, and Chapters 7, 8, 11 and 13 walk through generation, fine-tuning, RLHF, and serving with that anchor.
 2. **Compiled inference is now an option for big models too.** `torch.compile` plus **AOTInductor** (Chapter 13) lets you ahead-of-time compile a model into a shippable artifact, while **vLLM** uses PyTorch internals to serve LLMs at high throughput. Both replace older, more fragile recipes from 2E.
 3. **Edge deployment has consolidated on ExecuTorch.** `torch.mobile` from earlier editions has effectively been superseded; Chapter 14 walks through the new path.
 

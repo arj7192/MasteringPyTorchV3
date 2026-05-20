@@ -1,8 +1,8 @@
 # Mastering PyTorch, Third Edition — Outline (working draft)
 
 **Document owner:** Ashish Ranjan Jha
-**Status:** Working draft, addresses editorial board feedback from Sanjana (23 Oct 2025)
-**Last updated:** 17 May 2026
+**Status:** Working draft, addresses editorial board feedback from Sanjana (23 Oct 2025) and Shashank's follow-up decisions (20 May 2026)
+**Last updated:** 20 May 2026
 
 ---
 
@@ -28,7 +28,7 @@ Ashish Ranjan Jha studied electrical engineering at IIT Roorkee, computer scienc
 | 1 | Reflect all latest PyTorch 2.x features, especially GenAI and LLM ecosystem | Every chapter has explicit "PyTorch 2.x uplift" items in the change log; Parts 3 and 4 are heavily reweighted toward LLMs and generative models |
 | 2 | Subtitle still mentions PyTorch 1.x | Subtitle updated above |
 | 3 | Add a short section in Ch 1: *"What's New in PyTorch 2.x: Compiling, Performance, and Integration for GenAI"* | Added as new heading in Chapter 1 (draft section written, see `_drafts/Chapter01_PyTorch2x_section.md`) |
-| 4 | Add coverage on *Responsible and Efficient AI* | Two-pronged: (a) new dedicated **Chapter 20: Responsible and Efficient AI with PyTorch** anchoring the topic; (b) recurring "Responsible AI Notes" callouts in Chapters 6, 7, 8, 10, 11, 13 (LLM/diffusion/RL/production), and an "Efficient AI" thread in Ch 12 and Ch 14 |
+| 4 | Add coverage on *Responsible and Efficient AI* | **Per Shashank's 20 May follow-up: distributed, not a standalone chapter.** Concrete sections embedded contextually across Ch 6 (graph fairness), Ch 7 (watermarking + licensing), Ch 8 (data provenance, model cards, bias eval), Ch 10 (deepfakes, image watermarking), Ch 11 (reward hacking, alignment), Ch 12 (Efficient AI: throughput/Watt, QAT, sparsity), Ch 13 (DP-SGD via Opacus, observability, guardrails), Ch 14 (on-device efficiency). A short Responsible AI primer in Ch 1 frames the thread. |
 
 ---
 
@@ -58,7 +58,7 @@ Concise refresher that brings any reader fluent in Python and basic DL onto a le
   - PyTorch 2.x performance wins on real models
   - The GenAI lens: why 2.x matters for transformers and diffusion
   - First-class integrations: HF Accelerate, vLLM, ExecuTorch
-- 🟩 **NEW — Responsible AI primer** (one-page section that motivates Ch 20 and the recurring callouts)
+- 🟩 **NEW — Responsible AI primer** (one-page framing section that introduces the recurring Responsible AI / Efficient AI threads readers will see in later chapters: fairness in Ch 6, watermarking in Ch 7 & 10, model cards in Ch 8, alignment in Ch 11, efficiency in Ch 12, privacy & guardrails in Ch 13, on-device efficiency in Ch 14)
 
 Datasets / examples: MNIST.
 
@@ -111,7 +111,7 @@ Datasets / examples: MS-COCO, Flickr30k.
 - 🟧 Intro to GNNs and graph learning tasks
 - 🟧 GCN, GAT, GraphSAGE refresh on PyTorch Geometric latest
 - 🟩 **NEW — Graph Transformers (Graphormer, GraphGPS)** — heavy section
-- 🟩 *Responsible AI note:* fairness in graph models (e.g. social-network recommendation harms)
+- 🟩 **Responsible AI section: fairness in graph models** — measuring and mitigating disparate impact in node-classification and link-prediction (e.g. social-network recommendation harms); brief look at fairness-aware GNN training
 
 Datasets / examples: Karate Club, Planetoid (Cora/Citeseer/Pubmed), OGB.
 
@@ -123,23 +123,23 @@ Datasets / examples: Karate Club, Planetoid (Cora/Citeseer/Pubmed), OGB.
 *Level: Intermediate*
 
 - 🟧 Transformer-based text generator (PyTorch 2.x rewrite)
-- 🟧 Pre-trained LLM as text generator (swap GPT-2/3 for **Llama 3 / Qwen 2.5 / Mistral**)
+- 🟧 Pre-trained LLM as text generator — **Llama 3 as the headline example**, with lighter comparative references to **Qwen 2.5** and **Mistral** (per Packt 20 May guidance); GPT-2/3 examples retired
 - 🟧 Decoding strategies (greedy, beam, top-k, top-p, temperature, **speculative decoding** as new addition)
 - 🟧 Music generation: **MusicGen** (replaces the LSTM MIDI example as the headline; LSTM kept as a teaching baseline)
-- 🟩 *Responsible AI note:* watermarking generated content, attribution, dataset licensing
+- 🟩 **Responsible AI section: text watermarking** — hands-on look at watermarking generated text (e.g. cryptographic watermark schemes) plus attribution and dataset-licensing considerations
 
 Datasets / examples: WikiText-2, Classical Piano MIDI, MusicGen prompts.
 
 ### Chapter 8: Fine-tuning LLMs  (~28 pp, mostly NEW)  *replaces E2 Ch 8 "Neural Style Transfer"*
 *Level: Advanced*
 
-- 🟩 Loading open-weight LLMs in PyTorch with HF Transformers
+- 🟩 Loading open-weight LLMs in PyTorch with HF Transformers — **Llama 3 as the headline**, brief comparative notes on Qwen 2.5 and Mistral
 - 🟩 Parameter-Efficient Fine-Tuning (PEFT) overview: LoRA, QLoRA, IA³, adapters
-- 🟩 Hands-on **LoRA fine-tuning** on an open-weight model with `peft`, on a single GPU
+- 🟩 Hands-on **LoRA fine-tuning** on Llama 3 with `peft`, on a single GPU
 - 🟩 **Direct Preference Optimization (DPO)** as a lightweight alternative to RLHF — quick worked example
 - 🟩 Inference and deployment teaser (full deployment lives in Ch 13)
 - 🟩 Retrieval-Augmented Generation (RAG) with PyTorch + a vector store
-- 🟩 *Responsible AI note:* training data provenance, model card, eval hygiene
+- 🟩 **Responsible AI section: provenance, model cards, and bias evaluation** — training-data provenance, writing a model card for the fine-tuned model, and a hands-on bias-eval pass (e.g. BOLD or a small fairness suite)
 - 🟥 **REMOVE — Neural Style Transfer chapter** (folded into Ch 9 as a short historical section if at all)
 
 Datasets / examples: WikiText, a small instruction-tuning set (e.g. Alpaca-style subset).
@@ -162,7 +162,7 @@ Datasets / examples: MNIST, paired image dataset for pix2pix.
 - 🟩 **Stable Diffusion XL** (replaces SD v1.5 as the worked text-to-image example)
 - 🟩 **ControlNet** for conditional generation
 - 🟩 Short note on **video diffusion** (e.g. Stable Video Diffusion) — landscape only
-- 🟩 *Responsible AI note:* deepfakes, watermarking, opt-outs
+- 🟩 **Responsible AI section: deepfakes and image watermarking** — invisible image watermarking (e.g. Stable Signature / Tree-Ring style), provenance metadata (C2PA), and opt-out signals; brief look at robustness against adversarial removal
 
 Datasets / examples: a small image set for from-scratch diffusion, SDXL prompts.
 
@@ -171,9 +171,9 @@ Datasets / examples: a small image set for from-scratch diffusion, SDXL prompts.
 
 - 🟧 RL concepts, Q-learning, deep Q-learning
 - 🟧 Building a DQN in PyTorch 2.x (Pong on Gymnasium, replacing legacy OpenAI Gym imports)
-- 🟩 **RLHF in LLMs** — PPO recap, then a focused walkthrough wiring `trl` + PyTorch
+- 🟩 **RLHF in LLMs** — PPO recap, then a focused walkthrough wiring `trl` + PyTorch (on Llama 3)
 - 🟩 **DPO as the modern RLHF alternative** (cross-referenced with Ch 8)
-- 🟩 *Responsible AI note:* reward hacking, value alignment
+- 🟩 **Responsible AI section: reward hacking and alignment** — diagnosing reward hacking in a worked example, mitigation patterns (KL penalties, reward model ensembling), and a short note on red-teaming an RLHF-tuned model
 
 Datasets / examples: Atari Pong (Gymnasium), small preference dataset for RLHF/DPO.
 
@@ -189,9 +189,9 @@ Datasets / examples: Atari Pong (Gymnasium), small preference dataset for RLHF/D
 - 🟩 **Fully Sharded Data Parallel (FSDP / FSDP 2)** — large model training on commodity GPUs
 - 🟩 **`torch.distributed.checkpoint`** for resumable large-scale training
 - 🟩 **`torch.compile`** integration patterns and gotchas
-- 🟩 *Efficient AI note:* energy use, throughput per watt
+- 🟩 **Efficient AI section: energy-aware training, QAT, and sparsity** — measuring throughput per Watt, quantization-aware training in PyTorch (`torch.ao.quantization`), and unstructured/structured sparsity via `torch.ao.pruning`; brief practical checklist for shipping a more efficient model
 
-Datasets / examples: MNIST (baseline), a tiny LLM (e.g. nanoGPT-scale) for FSDP demo.
+Datasets / examples: MNIST (baseline), a tiny LLM (e.g. nanoGPT-scale) for FSDP demo, a CNN for QAT/pruning demos.
 
 ### Chapter 13: Operationalizing PyTorch Models into Production  (~38-43 pp)
 *Level: Intermediate–Advanced*
@@ -200,12 +200,12 @@ Datasets / examples: MNIST (baseline), a tiny LLM (e.g. nanoGPT-scale) for FSDP 
 - 🟧 TorchScript and ONNX export
 - 🟧 PyTorch in C++
 - 🟧 Cloud deployments (AWS, GCP, Azure) — refreshed
-- 🟩 **vLLM** for high-throughput LLM serving
+- 🟩 **vLLM** for high-throughput Llama 3 serving
 - 🟩 **AOTInductor** for ahead-of-time compiled inference
 - 🟩 **DeepSpeed-Inference** for multi-GPU LLM serving
-- 🟩 *Responsible AI note:* observability and guardrails in production
+- 🟩 **Responsible AI section: privacy, observability, and guardrails in production** — differential privacy with **Opacus** (DP-SGD training recipe, when to use it), input/output guardrails for an LLM service (toxicity, PII redaction, prompt-injection defence), and a model-card-driven monitoring dashboard
 
-Datasets / examples: MNIST classifier (baseline serving), a small open-weight LLM (vLLM/AOTInductor/DeepSpeed paths).
+Datasets / examples: MNIST classifier (baseline serving), a small open-weight LLM (vLLM/AOTInductor/DeepSpeed paths), a tabular dataset for the DP-SGD recipe.
 
 ### Chapter 14: PyTorch on Mobile and Edge Devices  (~20-22 pp)
 *Level: Advanced*
@@ -214,6 +214,7 @@ Datasets / examples: MNIST classifier (baseline serving), a small open-weight LL
 - 🟧 Building PyTorch apps on iOS (refreshed)
 - 🟩 **ExecuTorch** as the modern on-device runtime (replaces legacy `torch.mobile`)
 - 🟩 **PyTorch Edge** stack overview; Jetson workflow refresh
+- 🟩 **Efficient AI section: on-device efficiency** — quantization choices for mobile, latency/energy budgeting, and the privacy upside of on-device inference
 
 Datasets / examples: Image segmentation (Android), speech recognition (iOS), object detection (Jetson).
 
@@ -240,7 +241,7 @@ Datasets / examples: Image segmentation (Android), speech recognition (iOS), obj
 
 - 🟧 Model interpretability in PyTorch
 - 🟧 Captum, refreshed (incl. `SimilarityInfluence`)
-- 🟩 Short section: **interpretability for LLMs** (attention attribution, simple probing) — bridges to Ch 20
+- 🟩 Short section: **interpretability for LLMs** (attention attribution, simple probing) — complements the Responsible AI thread in Ch 8 and Ch 13
 
 ### Chapter 18: Recommendation Systems with PyTorch  (~12-15 pp)
 *Level: Advanced*
@@ -254,20 +255,7 @@ Datasets / examples: Image segmentation (Android), speech recognition (iOS), obj
 
 - 🟧 Hugging Face within the PyTorch context
 - 🟧 Hub, Datasets, Accelerate, Optimum — refreshed to latest APIs
-- 🟩 Modern model coverage (Llama 3, Qwen, Mistral, SDXL, Whisper v3)
-
-### Chapter 20: Responsible and Efficient AI with PyTorch  (~18 pp, ALL NEW)
-*Level: Intermediate–Advanced* — **net-new chapter, directly addresses editorial feedback**
-
-- 🟩 What "Responsible AI" means in 2026 (NIST AI RMF, EU AI Act practitioner view)
-- 🟩 Bias detection and mitigation in PyTorch (with Fairlearn / AIF360 / Captum)
-- 🟩 Privacy: differential privacy with **Opacus**
-- 🟩 Robustness: adversarial training basics
-- 🟩 Watermarking generated content (text + images)
-- 🟩 **Efficient AI:** energy-aware training, throughput/Watt, quantization-aware training, sparsity
-- 🟩 A practitioner's checklist for shipping responsible PyTorch systems
-
-Datasets / examples: a small tabular fairness dataset, an image classifier for adversarial demos, an LLM for watermarking, MNIST for DP-SGD.
+- 🟩 Modern model coverage anchored on **Llama 3**, with comparative examples around **Qwen 2.5**, **Mistral**, **SDXL**, and **Whisper v3**
 
 ---
 
@@ -275,18 +263,20 @@ Datasets / examples: a small tabular fairness dataset, an image classifier for a
 
 | Bucket | Chapters touched |
 |---|---|
-| 🟩 Net-new chapters | Ch 5 (Advanced Multimodal Models), Ch 8 (Fine-tuning LLMs), Ch 20 (Responsible & Efficient AI) |
-| 🟩 Heavy new sections inside existing chapters | Ch 1 (PyTorch 2.x), Ch 4 (ViT), Ch 6 (Graph Transformers), Ch 7 (modern LLMs + MusicGen), Ch 9 (pix2pix refresh + GANs-vs-diffusion), Ch 10 (SDXL + ControlNet), Ch 11 (RLHF/DPO), Ch 12 (FSDP, `torch.compile`), Ch 13 (vLLM, AOTInductor, DeepSpeed), Ch 14 (ExecuTorch), Ch 16 (AutoGluon/AutoKeras), Ch 18 (TorchRec) |
+| 🟩 Net-new chapters | Ch 5 (Advanced Multimodal Models), Ch 8 (Fine-tuning LLMs) |
+| 🟩 Heavy new sections inside existing chapters | Ch 1 (PyTorch 2.x + Responsible AI primer), Ch 4 (ViT), Ch 6 (Graph Transformers + fairness), Ch 7 (Llama 3 + MusicGen + text watermarking), Ch 9 (pix2pix refresh + GANs-vs-diffusion), Ch 10 (SDXL + ControlNet + image watermarking), Ch 11 (RLHF/DPO + alignment/red-team), Ch 12 (FSDP, `torch.compile`, QAT, sparsity, energy), Ch 13 (vLLM, AOTInductor, DeepSpeed, Opacus DP-SGD, guardrails), Ch 14 (ExecuTorch + on-device efficiency), Ch 16 (AutoGluon/AutoKeras), Ch 18 (TorchRec) |
 | 🟥 Removed | E2 Ch 3 *Combining CNNs and LSTMs* (standalone chapter), E2 Ch 8 *Neural Style Transfer* (standalone chapter), RandWireNN, GPT-3 OpenAI-API notebook |
 | 🟧 Pure refresh | Ch 2, Ch 3, Ch 15, Ch 17 |
 
 Rough overall churn: **~55-60% of the book** is updated or replaced, **~25%** is completely new, **~15-20%** is a light PyTorch 2.x code refresh.
 
+> **Responsible & Efficient AI coverage:** Per Packt's 20 May guidance, this is now embedded contextually inside the relevant chapters rather than as a standalone Ch 20. Specifically: fairness in Ch 6, text watermarking in Ch 7, model cards + bias eval in Ch 8, deepfakes + image watermarking in Ch 10, alignment + red-teaming in Ch 11, energy + QAT + sparsity in Ch 12, DP-SGD (Opacus) + guardrails in Ch 13, on-device efficiency in Ch 14. A short Responsible AI primer in Ch 1 sets up the thread.
+
 ---
 
 ## Open questions for the editorial board
 
-1. Comfortable with the new Chapter 21 ("Responsible and Efficient AI"), or prefer it distributed as sections across existing chapters? My recommendation is dedicated chapter + recurring callouts (as drafted above).
-2. Comfortable dropping the standalone Neural Style Transfer chapter, given it is well-covered online and crowds out higher-impact GenAI content?
-3. Any opinion on swapping the headline LLM example (Llama 3 vs Qwen 2.5 vs Mistral) for license/availability stability over the print lifetime?
-4. Was a reader survey collected for E2→E3 (similar to the E1→E2 one)? If yes, please share — I will fold findings into the next outline revision.
+1. ~~Standalone vs distributed Responsible & Efficient AI~~ → **closed:** distributed across chapters per Packt 20 May guidance. Outline reflects this.
+2. ~~Drop standalone Neural Style Transfer chapter?~~ → **closed:** drop and fold into Ch 9 as a short section per Packt 20 May guidance.
+3. ~~Headline LLM choice?~~ → **closed:** Llama 3 primary, with lighter comparative references to Qwen 2.5 and Mistral, per Packt 20 May guidance.
+4. Was a reader survey collected for E2 → E3 (similar to E1 → E2)? Awaiting Sanjana's return — I will fold findings into the next outline revision when shared.
