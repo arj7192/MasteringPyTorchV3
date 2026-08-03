@@ -2,59 +2,57 @@
 
 ## Are we stuck?
 
-**No.** Environment is healthy. We were blocked briefly by (1) macOS SSL certs for dataset downloads and (2) a very slow CIFAR-10 fetch - not by PyTorch itself.
+**No, but the venv had drifted.** Requirements say torch 2.13; the active `.venv` was still on **torch 2.2.0** / torchvision 0.17, and a NumPy 2.4 install broke `tensor.numpy()` / DataLoader workers. That explains most of the scary Wave 1 reds, not "PyTorch is broken."
 
-## Versions installed (`.venv`)
+## Versions
 
-| Package | Installed |
-|---|---|
-| **torch** | **2.13.0** (latest) |
-| **torchvision** | **0.28.0** (latest) |
-| transformers | 5.14.1 |
-| datasets | 5.0.1 |
-| captum | 0.9.0 |
-| pytorch-lightning | 2.6.5 |
-| fastai | 2.8.8 |
+| Package | requirements floor | What was in `.venv` during your re-run | Target after upgrade |
+|---|---|---|---|
+| torch | >=2.13.0 | **2.2.0** (stale) | 2.13.0 |
+| torchvision | >=0.28.0 | 0.17.0 | 0.28.0 |
+| numpy | >=1.26,<2.3 (pinned after re-run) | 2.4.6 during fail / 1.26.4 later | <2.3 |
 
-`requirements.txt` and `requirements-core.txt` floored to these.
+## Your Wave 1 re-run (partial paste)
 
-Smoke test (just now): MNIST loads, `torch.compile` works.
-
-## Wave 1 execution results (first pass)
-
-| Notebook | Result | Root cause |
+| Notebook | Result | Likely cause |
 |---|---|---|
-| Ch02 ResNetBlock / DenseNetBlock / GoogLeNet | ✅ pass | - |
-| Ch01 mnist_pytorch / compile_demo | ❌ then env-fixed | SSL cert on MNIST download (fixed via certifi) |
-| Ch02 alexnet / vgg13 | ❌ then data-fixed | missing `hymenoptera_data` (now downloaded) |
-| Ch02 lenet | ❌ | CIFAR-10 download incomplete (partial tar in `data/`) |
-| Ch03 rnn | ❌ | missing local `aclImdb/` |
-| Ch03 lstm | ❌ | **`torchtext.legacy` gone** - needs HF Datasets rewrite (Ashish) |
-| Ch15 lightning | ❌ then code-fixed | `validation_epoch_end` removed in PL 2.0 (notebook updated) |
-| Ch15 fastai / profiler, Ch17 captum | ❌ | same SSL/MNIST path issue (should pass on re-run) |
+| Ch01 `mnist_pytorch` | fail @ train loop (~43s) | env / numpy↔torch ABI (upgrade torch) |
+| Ch01 `pytorch2x_compile_demo` | fail @ MNIST load (~3s) | download/SSL or empty `Chapter01/data`; also env |
+| Ch02 `lenet` | **timeout 600s** | CIFAR tar incomplete (~45 MB; full is ~170 MB). Delete and re-download |
+| Ch02 `transfer_learning_alexnet` | fail @ `imageshow` (~5s) | `img.numpy()` under broken numpy/torch combo |
+| Ch02 `vgg13_...` | fail @ visualize | same numpy ABI + DataLoader `num_workers=2` spawn; transformers also saw torch 2.2 |
+| Ch02 ResNet / DenseNet / GoogLeNet | **pass** | pure tensor ops, no dataset/numpy bridge |
+| Ch03 `rnn` | fail | missing `Chapter03/aclImdb/` |
+| Ch03 `lstm` | fail | **`torchtext.legacy` removed** (real code debt) |
+| Ch15 `fastai` | **pass** (~336s) | - |
+| Ch15 `pytorch_lightning` | (still running in paste) | should be OK after earlier hook fix |
 
-**Score first automated run:** 3/15 pass. After SSL + hymenoptera + Lightning fix, most of the rest should pass on re-run except Ch03 lstm (API rewrite) and anything needing full CIFAR/IMDB.
+## Hard breaks (need author / data work)
 
-## Hard breaks that need author work (not env)
+1. **`torchtext.legacy`** - Ch03 `lstm.ipynb` (also Ch04 transformer, Ch07 text_generation)
+2. **Missing IMDB** - Ch03 `rnn.ipynb` needs `aclImdb/`
+3. **Incomplete CIFAR** - Ch02 `lenet.ipynb`
 
-1. **`torchtext.legacy`** - Ch03 `lstm.ipynb`, also Ch04 `transformer.ipynb`, Ch07 `text_generation.ipynb`
-2. **`import gym`** - Ch11 `pong.ipynb` → `gymnasium`
-3. **Lightning hooks** - fixed in Ch15; scan other PL notebooks if any
-4. **Missing datasets** - CIFAR (lenet), IMDB (rnn), chapter-specific assets
-
-## How to re-run Wave 1 cleanly
+## Fix env, then re-run
 
 ```bash
 cd /Users/ashish/code/MasteringPyTorchV3
 source .venv/bin/activate
-# finish CIFAR once (optional, for lenet):
-# curl -L -o data/cifar-10-python.tar.gz https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
-# tar -xzf data/cifar-10-python.tar.gz -C data
+pip install -U 'torch>=2.13.0' 'torchvision>=0.28.0' 'numpy>=1.26,<2.3'
+python -c "import torch,numpy,torchvision; print(torch.__version__, torchvision.__version__, numpy.__version__)"
+# expect: 2.13.x  0.28.x  1.26.x or 2.2.x (not 2.4)
+
+# CIFAR (lenet) - wipe partial and fetch full ~170MB
+rm -f data/cifar-10-python.tar.gz
+curl -L --retry 3 -o data/cifar-10-python.tar.gz \
+  https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
+# optional extract; torchvision will also extract on download=True if root=../data or ./data matches
+
+# IMDB (rnn) - only if you want that notebook green now
+# curl -L -o /tmp/aclImdb_v1.tar.gz https://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz
+# tar -xzf /tmp/aclImdb_v1.tar.gz -C Chapter03
+
 python scripts/validate_notebooks.py --wave1 --timeout 600
 ```
 
-## All 41 notebooks
-
-Not fully executed yet. Static scan (`scripts/scan_deprecated.py`) shows the real API debt is concentrated in torchtext/gym notebooks; many `.data` hits are noisy false positives.
-
-**Next cheapest validation win:** re-run Wave 1 with SSL helper (already in script) - expect ~10–12/15 green, with Ch03 lstm + maybe lenet/rnn still red until data/API migration.
+**Expect after env + CIFAR:** architecture notebooks + Ch1 + alexnet/vgg + fastai/lightning/profiler/captum mostly green. Still red until rewritten: **Ch03 lstm**. Still red without IMDB: **Ch03 rnn**.
