@@ -11,29 +11,27 @@
 ```
 Hi Shashank,
 
-Sorry for the long silence since my June 28 note, and for missing the July 3 update I said I'd send. I know that made planning harder on your side.
+Sorry for the long silence since my June 28 note, and for missing the July 3 update I said I'd send. That was on me.
 
-Quick status:
+Quick status, and no change to the timeline from my side.
 
-Done / in the companion repo (https://github.com/arj7192/MasteringPyTorchV3):
-- Outline, change log, and plan updated for the May 20 decisions (Responsible AI woven into chapters, NST folded into GANs, Llama 3 as the main open-weight example)
-- Full chapter folders remapped from 2E into the 3E structure
-- Wave 1 code prep underway: PyTorch bumped to 2.13, torchvision weights API updated, poutyne/RandWireNN/GPT-3 OpenAI notebook removed, new torch.compile demo notebook for Ch 1, Ch 1 prose drafts for the PyTorch 2.x section and Responsible AI primer
-- Status board at _planning/STATUS.md
+What's done (companion repo: https://github.com/arj7192/MasteringPyTorchV3):
+- Outline, change log, and plan locked to the May 20 decisions (Responsible AI woven into the chapters, NST folded into GANs, Llama 3 as the main open-weight example)
+- Full 3E chapter folders remapped from 2E (19 chapters; Ch 5 multimodal and Ch 8 fine-tuning LLMs scaffolded as net-new)
+- Planned removals applied: poutyne, RandWireNN, GPT-3 OpenAI notebook; no standalone NST / CNN+LSTM chapters
+- Deps floored to current PyTorch 2.x (torch 2.13); torchvision weights API updated where needed
+- Wave 1 code prep in progress: Ch 1 torch.compile demo notebook, Ch 1 prose drafts for the PyTorch 2.x section and Responsible AI primer, Lightning notebook API fixes, notebook validation scripts
+- Live status board at _planning/STATUS.md
 
-Not done yet: first-draft chapter manuscripts ready for editorial review. That part is still behind on my end.
+How I'm writing this edition (same pattern as 2E): I start with the code and notebooks, then diagrams, then the actual chapter copy. That way the manuscript tracks something that actually runs. The scaffolding above is that first stage. I'm on the chapter manuscripts now, starting with Wave 1 (Ch 1, 2, 3, 15, 17).
 
-Revised dates (replacing the May plan):
-- Wave 1 first drafts: Fri 29 Aug 2026
-- Wave 2: Fri 10 Oct 2026
-- Wave 3: Fri 12 Dec 2026
-- Wave 4: Fri 13 Feb 2027
-- All final drafts: Fri 27 Mar 2027
-- Print target: May–Jun 2027
+Still to do before those first drafts are with you:
+- Finish Wave 1 code cleanups that block the text (e.g. torchtext → HF Datasets on the RNN chapter)
+- Diagrams for the refreshed / new sections
+- Turn the Ch 1 drafts and the rest of Wave 1 into Packt-ready chapter copy
+- Then the same loop for Waves 2–4 (heavy refactors, then the net-new chapters: multimodal, fine-tuning LLMs, Llama 3 / MusicGen, SDXL / ControlNet, RLHF, production / edge)
 
-Feb 2027 print is not realistic anymore given the slippage. I'd rather reset now than keep missing intermediate dates.
-
-I'll send the next note with Wave 1 chapter drafts (starting with Ch 1) by Fri 29 Aug, and keep fortnightly updates after that. Happy to jump on a short call this week if that helps your scheduling.
+I'll send the next update with Wave 1 chapter drafts as they land. Happy to jump on a short call this week if useful.
 
 Best,
 Ashish
