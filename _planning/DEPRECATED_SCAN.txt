@@ -1,0 +1,249 @@
+Scanned 42 notebooks
+
+## Chapter01/mnist_pytorch.ipynb
+  - cell 2 line ~5: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 9 line ~2: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 9 line ~9: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 16 line ~1: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter01/mnist_tensorflow.ipynb
+  - cell 6 line ~13: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 6 line ~18: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 10 line ~1: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter02/lenet.ipynb
+  - cell 4 line ~8: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 5 line ~8: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 5 line ~14: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 10 line ~7: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter02/transfer_learning_alexnet.ipynb
+  - cell 3 line ~16: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 5 line ~37: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 6 line ~20: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter02/vgg13_pretrained_run_inference.ipynb
+  - cell 2 line ~15: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 4 line ~29: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter03/lstm.ipynb
+  - cell 1 line ~12: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 2 line ~2: from\s+torchtext
+    → torchtext: migrate to Hugging Face datasets / torchdata
+  - cell 2 line ~3: from\s+torchtext
+    → torchtext: migrate to Hugging Face datasets / torchdata
+  - cell 8 line ~3: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 8 line ~4: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter03/rnn.ipynb
+  - cell 1 line ~12: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter04/transformer.ipynb
+  - cell 1 line ~10: from\s+torchtext
+    → torchtext: migrate to Hugging Face datasets / torchdata
+  - cell 1 line ~11: from\s+torchtext
+    → torchtext: migrate to Hugging Face datasets / torchdata
+  - cell 1 line ~12: from\s+torchtext
+    → torchtext: migrate to Hugging Face datasets / torchdata
+  - cell 1 line ~8: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 1 line ~11: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 2 line ~15: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 2 line ~16: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 2 line ~17: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter07/music_generation.ipynb
+  - cell 2 line ~13: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 28 line ~13: Variable\(
+    → torch.autograd.Variable is obsolete
+  - cell 28 line ~14: Variable\(
+    → torch.autograd.Variable is obsolete
+  - cell 29 line ~9: Variable\(
+    → torch.autograd.Variable is obsolete
+  - cell 29 line ~10: Variable\(
+    → torch.autograd.Variable is obsolete
+  - cell 32 line ~7: Variable\(
+    → torch.autograd.Variable is obsolete
+  - cell 32 line ~18: Variable\(
+    → torch.autograd.Variable is obsolete
+  - cell 32 line ~11: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 32 line ~17: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 32 line ~19: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter07/text_generation.ipynb
+  - cell 1 line ~10: from\s+torchtext
+    → torchtext: migrate to Hugging Face datasets / torchdata
+  - cell 1 line ~11: from\s+torchtext
+    → torchtext: migrate to Hugging Face datasets / torchdata
+  - cell 1 line ~12: from\s+torchtext
+    → torchtext: migrate to Hugging Face datasets / torchdata
+  - cell 1 line ~8: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 1 line ~11: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 2 line ~15: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 2 line ~16: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 2 line ~17: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter09/dcgan.ipynb
+  - cell 3 line ~7: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 12 line ~2: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 14 line ~7: Variable\(
+    → torch.autograd.Variable is obsolete
+  - cell 14 line ~8: Variable\(
+    → torch.autograd.Variable is obsolete
+  - cell 14 line ~11: Variable\(
+    → torch.autograd.Variable is obsolete
+  - cell 14 line ~17: Variable\(
+    → torch.autograd.Variable is obsolete
+  - cell 14 line ~40: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter10/image_generation_using_diffusion.ipynb
+  - cell 15 line ~3: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter11/pong.ipynb
+  - cell 4 line ~11: from\s+gym\b
+    → gym: migrate to gymnasium
+  - cell 4 line ~12: from\s+gym\b
+    → gym: migrate to gymnasium
+  - cell 6 line ~17: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter13/mnist_pytorch.ipynb
+  - cell 2 line ~5: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 9 line ~2: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 9 line ~9: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 16 line ~1: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter13/model_scripting.ipynb
+  - cell 1 line ~5: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 5 line ~1: torch\.jit\.script
+    → prefer torch.compile for new 3E examples (TorchScript still OK for export chapters)
+
+## Chapter13/model_tracing.ipynb
+  - cell 1 line ~5: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter13/onnx.ipynb
+  - cell 1 line ~5: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter13/run_inference.ipynb
+  - cell 1 line ~5: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter15/pytorch_lightning.ipynb
+  - cell 1 line ~6: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter15/pytorch_profiler.ipynb
+  - cell 2 line ~5: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 9 line ~2: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 9 line ~9: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 16 line ~1: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter16/automl-pytorch.ipynb
+  - cell 4 line ~1: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 4 line ~1: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter16/optuna_pytorch.ipynb
+  - cell 2 line ~5: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 4 line ~35: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 6 line ~11: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 6 line ~12: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter17/captum_interpretability.ipynb
+  - cell 2 line ~5: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 10 line ~2: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 10 line ~9: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 17 line ~1: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter17/pytorch_interpretability.ipynb
+  - cell 2 line ~5: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 10 line ~2: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 10 line ~9: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 17 line ~1: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 25 line ~3: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 26 line ~3: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter18/torch-recsys.ipynb
+  - cell 28 line ~78: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 28 line ~80: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 28 line ~81: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter19/HuggingFaceAccelerate.ipynb
+  - cell 1 line ~23: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 1 line ~24: \.data\b
+    → tensor .data is discouraged (review manually)
+
+## Chapter19/HuggingFaceDatasets.ipynb
+  - cell 2 line ~19: \.data\b
+    → tensor .data is discouraged (review manually)
+  - cell 2 line ~20: \.data\b
+    → tensor .data is discouraged (review manually)
+
+TOTAL hits: 96 across 27 notebooks

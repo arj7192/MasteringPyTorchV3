@@ -1,28 +1,31 @@
 # Mastering PyTorch, Third Edition
 
-Companion code repository for *Mastering PyTorch, Third Edition* (Packt, forthcoming).
+Companion code for *Mastering PyTorch, Third Edition* (Packt, forthcoming).
 
-> **Status: work in progress.** This repository is being prepared in parallel with chapter authoring. Contents will land chapter-by-chapter as drafts move into review. See [`_planning/PROJECT_PLAN.md`](./_planning/PROJECT_PLAN.md) for the schedule.
+> Work in progress. Planning is locked; Wave 1 code prep is underway. Live board: [`_planning/STATUS.md`](./_planning/STATUS.md). Schedule: [`_planning/PROJECT_PLAN.md`](./_planning/PROJECT_PLAN.md).
 
 ## About this edition
 
-This third edition is a substantial update to *Mastering PyTorch, 2E* (2024). It re-anchors the entire book on **PyTorch 2.x** semantics (`torch.compile`, FSDP, AOTInductor, ExecuTorch), modernizes the generative-AI coverage (open-weight LLMs, SDXL, ControlNet, MusicGen), and adds two new chapters:
+This is a substantial update to *Mastering PyTorch, 2E* (2024). The book is re-anchored on **PyTorch 2.x** (`torch.compile`, FSDP, AOTInductor, ExecuTorch), with modern GenAI coverage (open-weight LLMs, SDXL, ControlNet, MusicGen). Two chapters are essentially new:
 
-- **Chapter 5 — Advanced Multimodal Models** (CLIP, BLIP-2, LLaVA)
-- **Chapter 8 — Fine-tuning LLMs** (PEFT/LoRA/DPO, RAG)
-- **Chapter 20 — Responsible and Efficient AI with PyTorch** *(proposed; addresses editorial board feedback)*
+- **Chapter 5: Advanced Multimodal Models** (CLIP, BLIP-2, LLaVA)
+- **Chapter 8: Fine-tuning LLMs** (PEFT/LoRA/DPO, RAG)
 
-For the full delta from 2E, see [`_planning/CHANGE_LOG_2E_to_3E.md`](./_planning/CHANGE_LOG_2E_to_3E.md). For the editor-facing outline that incorporates the editorial board's feedback, see [`_planning/OUTLINE_E3.md`](./_planning/OUTLINE_E3.md).
+Responsible and Efficient AI is woven into the relevant chapters (not a standalone chapter), per Packt's May 2026 guidance.
 
-## Repository layout
+Full 2E to 3E delta: [`_planning/CHANGE_LOG_2E_to_3E.md`](./_planning/CHANGE_LOG_2E_to_3E.md). Editor-facing outline: [`_planning/OUTLINE_E3.md`](./_planning/OUTLINE_E3.md).
+
+## Layout
 
 ```
 .
-├── Chapter01/ … Chapter20/   # one folder per chapter, notebooks + scripts
-├── _planning/                # outline, change log, project plan (editorial-facing)
-├── _drafts/                  # in-progress prose drafts before they land in the book
-├── requirements.txt          # base Python deps (PyTorch 2.x anchored)
-└── README.md                 # this file
+├── Chapter01/ … Chapter19/   # notebooks and scripts per chapter
+├── _planning/                # outline, change log, project plan, status
+├── _drafts/                  # prose drafts before they land in the book
+├── requirements.txt          # PyTorch 2.13+ and ecosystem floors
+├── requirements-core.txt     # lighter set for Wave 1 validation
+├── scripts/                  # notebook scan / execute helpers
+└── README.md
 ```
 
 ## Getting started
@@ -30,15 +33,18 @@ For the full delta from 2E, see [`_planning/CHANGE_LOG_2E_to_3E.md`](./_planning
 ```bash
 python -m venv .venv
 source .venv/bin/activate
+pip install -U pip
 pip install -r requirements.txt
 ```
 
-Many chapters need a GPU. Where they do, the chapter README will say so and point at the cheapest path (Colab, Kaggle, or a small cloud instance).
+On macOS, if dataset downloads fail with SSL errors, make sure certifi is installed and `SSL_CERT_FILE` points at it (the validation scripts do this for you).
+
+Many chapters want a GPU. Where they do, the chapter notes will say so and point at Colab, Kaggle, or a small cloud box.
 
 ## Author
 
-[Ashish Ranjan Jha](https://www.linkedin.com/in/ashishrj/) — Co-Founder and CEO at [Nativ](https://www.usenativ.com), an a16z Speedrun-backed AI localization startup. Previously Head of ML & AI at XYZ Reality; prior to that at Tractable, Revolut, Sony and Oracle. IIT Roorkee, EPFL, Quantic. Previously authored *Mastering PyTorch, 2E* and *Fight Fraud with Machine Learning*.
+[Ashish Ranjan Jha](https://www.linkedin.com/in/ashishrj/), Co-Founder and CEO at [Nativ](https://www.usenativ.com) (a16z Speedrun). Previously Head of ML and AI at XYZ Reality; before that Tractable, Revolut, Sony, Oracle. IIT Roorkee, EPFL, Quantic. Also authored *Mastering PyTorch, 2E* and *Fight Fraud with Machine Learning*.
 
 ## License
 
-Apache 2.0 (to match V2 repo; will confirm with Packt before public release).
+Apache 2.0 (same as V2; will confirm with Packt before public release).
