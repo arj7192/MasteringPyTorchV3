@@ -39,7 +39,3 @@ The classifier selects an available CUDA, MPS, or CPU device for feature extract
 The quick profile achieved 110 correct predictions out of 128 held-out reviews, or 85.9%, in both tested environments. It selected epoch 19 using validation loss, kept the transformer frozen, and passed the checkpoint reload check. These small-sample results illustrate the workflow and are not a general performance benchmark. See [VALIDATION.md](VALIDATION.md) for the tested configurations and source fingerprints.
 
 The classifier saves its head, learning curve, and run settings under `outputs/review_classifier/`. These files are created when you run the notebook and are excluded from Git. Try the suggested changes near the end, including different reviews, learning rates, and the larger data profile. Use validation results to make choices and retain the test set for the final comparison.
-
-## Earlier examples
-
-The inherited `mnist_pytorch.ipynb`, `mnist_tensorflow.ipynb`, and `pytorch2x_compile_demo.ipynb` files are retained for reference. They are outside the current Chapter 1 reading sequence. The full compilation walkthrough belongs with the later performance chapters.

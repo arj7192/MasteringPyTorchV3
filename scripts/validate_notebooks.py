@@ -20,9 +20,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 WAVE1 = [
-    "Chapter01/mnist_pytorch.ipynb",
-    "Chapter01/pytorch2x_compile_demo.ipynb",
-    # mnist_tensorflow.ipynb intentionally skipped from default wave1 gate
+    "Chapter01/00_pytorch_fundamentals.ipynb",
+    "Chapter01/01_transformer_review_classifier.ipynb",
     "Chapter02/lenet.ipynb",
     "Chapter02/transfer_learning_alexnet.ipynb",
     "Chapter02/vgg13_pretrained_run_inference.ipynb",
