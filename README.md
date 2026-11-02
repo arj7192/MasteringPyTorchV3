@@ -1,49 +1,27 @@
 # Mastering PyTorch, Third Edition
 
-Companion code for *Mastering PyTorch, Third Edition* (Packt, forthcoming).
+Companion code for *Mastering PyTorch, Third Edition* by Ashish Ranjan Jha (Packt, forthcoming).
 
-> Work in progress. Planning is locked; Wave 1 code prep is underway. Live board: [`_planning/STATUS.md`](./_planning/STATUS.md). Schedule: [`_planning/PROJECT_PLAN.md`](./_planning/PROJECT_PLAN.md).
+This edition is in progress. Start with the [Chapter 1 notebooks and setup instructions](Chapter01/README.md). Other chapter folders contain earlier examples that are being revised; they should not yet be treated as validated third-edition code.
 
-## About this edition
+## Chapter 1
 
-This is a substantial update to *Mastering PyTorch, 2E* (2024). The book is re-anchored on **PyTorch 2.x** (`torch.compile`, FSDP, AOTInductor, ExecuTorch), with modern GenAI coverage (open-weight LLMs, SDXL, ControlNet, MusicGen). Two chapters are essentially new:
+The chapter introduces a PyTorch training workflow through movie-review classification. A frozen pretrained transformer supplies features, and a small classification head learns to distinguish positive and negative reviews.
 
-- **Chapter 5: Advanced Multimodal Models** (CLIP, BLIP-2, LLaVA)
-- **Chapter 8: Fine-tuning LLMs** (PEFT/LoRA/DPO, RAG)
+1. [A short tour of PyTorch](Chapter01/00_pytorch_fundamentals.ipynb): tensors, storage, devices, gradients, modules, and batches.
+2. [Teach a small classifier to read movie reviews](Chapter01/01_transformer_review_classifier.ipynb): prepare data, extract features, train and evaluate the head, try new reviews, and save and reload the model.
 
-Responsible and Efficient AI is woven into the relevant chapters (not a standalone chapter), per Packt's May 2026 guidance.
+Both notebooks have been run on local CPU and in fresh Google Colab CPU sessions. See the [tested configurations and results](Chapter01/VALIDATION.md).
 
-Full 2E to 3E delta: [`_planning/CHANGE_LOG_2E_to_3E.md`](./_planning/CHANGE_LOG_2E_to_3E.md). Editor-facing outline: [`_planning/OUTLINE_E3.md`](./_planning/OUTLINE_E3.md).
+## Running the examples
 
-## Layout
+Each chapter provides its own setup instructions. For Chapter 1, the notebooks include dependency installation cells and can run on CPU. You can upload a notebook to Google Colab or run it locally in Jupyter. The [Chapter 1 guide](Chapter01/README.md) explains the download size, expected outputs, and local setup.
 
-```
-.
-├── Chapter01/ … Chapter19/   # notebooks and scripts per chapter
-├── _planning/                # outline, change log, project plan, status
-├── _drafts/                  # prose drafts before they land in the book
-├── requirements.txt          # PyTorch 2.13+ and ecosystem floors
-├── requirements-core.txt     # lighter set for Wave 1 validation
-├── scripts/                  # notebook scan / execute helpers
-└── README.md
-```
-
-## Getting started
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -U pip
-pip install -r requirements.txt
-```
-
-On macOS, if dataset downloads fail with SSL errors, make sure certifi is installed and `SSL_CERT_FILE` points at it (the validation scripts do this for you).
-
-Many chapters want a GPU. Where they do, the chapter notes will say so and point at Colab, Kaggle, or a small cloud box.
+The matching Python files provide the same cells in a format that is easy to review in Git. Generated model weights, downloaded datasets, and local run outputs are not included.
 
 ## Author
 
-[Ashish Ranjan Jha](https://www.linkedin.com/in/ashishrj/), Co-Founder and CEO at [Nativ](https://www.usenativ.com) (a16z Speedrun). Previously Head of ML and AI at XYZ Reality; before that Tractable, Revolut, Sony, Oracle. IIT Roorkee, EPFL, Quantic. Also authored *Mastering PyTorch, 2E* and *Fight Fraud with Machine Learning*.
+[Ashish Ranjan Jha](https://github.com/arj7192)
 
 ## License
 
