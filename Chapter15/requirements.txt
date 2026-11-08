@@ -1,0 +1,11 @@
+# Install a matching PyTorch/torchvision pair for your runtime first.
+# The notebook retains a pair already supplied by a hosted runtime.
+# Local CPU validation used torch 2.15.0 and torchvision 0.29.2.
+timm==1.0.30
+transformers==5.22.1
+datasets==5.1.0
+accelerate==1.15.0
+matplotlib==3.11.2
+safetensors==0.8.0
+psutil==7.2.2
+lightning==2.6.6

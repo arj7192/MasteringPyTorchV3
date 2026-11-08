@@ -2,7 +2,7 @@
 
 Companion code for *Mastering PyTorch, Third Edition* by Ashish Ranjan Jha (Packt, forthcoming).
 
-This edition is in progress. Start with the [Chapter 1 notebooks and setup instructions](Chapter01/README.md). Other chapter folders contain earlier examples that are being revised; they should not yet be treated as validated third-edition code.
+This edition is in progress. Start with the [Chapter 1 notebooks and setup instructions](Chapter01/README.md). Chapter 15 also has a [tested pet-photo prototype](Chapter15/README.md). Other chapter folders contain earlier examples that are being revised; they should not yet be treated as validated third-edition code.
 
 ## Chapter 1
 
@@ -13,9 +13,13 @@ The chapter introduces a PyTorch training workflow through movie-review classifi
 
 Both notebooks have been run on local CPU and in fresh Google Colab CPU sessions. See the [tested configurations and results](Chapter01/VALIDATION.md).
 
+## Chapter 15
+
+[Rapid prototyping with a pet-photo classifier](Chapter15/01_pet_prototype_trainer.ipynb) uses a frozen SigLIP 2 image encoder, a small trainable head, Transformers Trainer, PyTorch Profiler, and a short Lightning alternative. The [chapter guide](Chapter15/README.md) explains setup, downloads, saved outputs, and the [validation scope](Chapter15/VALIDATION.md).
+
 ## Running the examples
 
-Each chapter provides its own setup instructions. For Chapter 1, the notebooks include dependency installation cells and can run on CPU. You can upload a notebook to Google Colab or run it locally in Jupyter. The [Chapter 1 guide](Chapter01/README.md) explains the download size, expected outputs, and local setup.
+Each chapter provides its own setup instructions. For Chapters 1 and 15, the notebooks include dependency installation cells and can run on CPU. You can upload a notebook to Google Colab or run it locally in Jupyter. The [Chapter 1 guide](Chapter01/README.md) explains the download size, expected outputs, and local setup.
 
 The matching Python files provide the same cells in a format that is easy to review in Git. Generated model weights, downloaded datasets, and local run outputs are not included.
 
