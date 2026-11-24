@@ -1,5 +1,7 @@
 # Validation
 
+Visual walkthrough revision: all 10 cells of the updated vision notebook completed locally on CPU with the optional black-baseline cell enabled. Measured results matched the preceding run. The same run generated the Chelsea input comparison, the three baseline/input images with scores, and the coffee photograph with description scores. Colab verification refers to previous notebook versions.
+
 Latest local check, 24 November 2026: All 11 language cells and all 10 vision cells completed in separate fresh Python CPU processes with cached model weights. Both optional flags were enabled. The previously reported scores for the core experiments matched the earlier runs.
 
 - Joel has yellow, block 1: blue note -6.948, after swap +6.024, red note +6.023
