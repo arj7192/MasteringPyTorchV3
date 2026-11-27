@@ -2,7 +2,7 @@
 
 Companion code for *Mastering PyTorch, Third Edition* by Ashish Ranjan Jha (Packt, forthcoming).
 
-This edition is in progress. Start with the [Chapter 1 notebooks and setup instructions](Chapter01/README.md). Tested third-edition examples are also available for [Chapter 2](Chapter02/README.md), [Chapter 15](Chapter15/README.md), and [Chapter 17](Chapter17/README.md).
+This edition is in progress. Start with the [Chapter 1 notebooks and setup instructions](Chapter01/README.md). Tested third-edition examples are also available for [Chapter 2](Chapter02/README.md), [Chapter 3](Chapter03/README.md), [Chapter 15](Chapter15/README.md), and [Chapter 17](Chapter17/README.md).
 
 ## Chapter 1
 
